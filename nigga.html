@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checker</title>
+</head>
+<body>
+    <h1>Grade Checker</h1>
+    <form id="form">
+        <input type="text" id="num1" placeholder="Enter letter grade (A-F)"><br><br>
+        <button type="button" id="btn">Check Grade</button>
+        <p id="msg"></p>
+    </form> 
+    
+    <script>
+        const button = document.getElementById("btn");
+        const num1 = document.getElementById("num1");
+
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const gradeInput = num1.value.trim().toUpperCase();
+            let description;
+
+            switch (gradeInput) {
+                case 'A':
+                    description = "EXCELLENT";
+                    break;
+                case 'B':
+                    description = "VERY GOOD";
+                    break;
+                case 'C':
+                    description = "GOOD";
+                    break;
+                case 'D':
+                    description = "AVERAGE";
+                    break;
+                case 'E':
+                    description = "BELOW AVERAGE";
+                    break;
+                case 'F':
+                    description = "FAIL";
+                    break;
+                default:
+                    description = "Please enter a valid letter grade (A-F).";
+            }
+
+            document.getElementById("msg").innerText = `Your grade is: ${description}`;
+        });
+    </script>
+</body>
+</html>
